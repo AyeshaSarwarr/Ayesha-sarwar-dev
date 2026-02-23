@@ -28,7 +28,7 @@ function FeaturedProjects({limit}) {
           </div>
            <div className='flex '>
             <Link to={project.githubUrl} className='m-5' target='_blank'><Button content="Github"/></Link>
-           <Link to={project.githubUrl} className='m-5' target='_blank'><Button content="Live Preview"/></Link>
+           <Link to={project.liveUrl} className='m-5' target='_blank'><Button content="Live Preview"/></Link>
            </div>
         </div>
       )}
