@@ -3,18 +3,45 @@ import { NavLink } from 'react-router-dom'
 
 function Navbar() {
 
+  const navLinkStyle = ({ isActive }) =>
+    `relative px-3 py-2 transition duration-300 
+     ${isActive 
+       ? "text-blue-400" 
+       : "text-gray-300 hover:text-white"
+     }`
+
   return (
-    <header className='flex gap-5 justify-end md:px-20 bg-white text-black p-4 md:text-xl text-xs'>
+    <header className="sticky top-0 z-50 backdrop-blur-md bg-slate-950/70 border-b border-slate-800">
       
-      <NavLink to="/" className={({isActive})=> `${isActive ? "underline underline-offset-8 text-blue-700 " : ""} hover:text-gray-600`}>Home</NavLink>
-      
-      <NavLink to="/about" className={({isActive})=> `${isActive ? "underline underline-offset-8 text-blue-700" : ""} hover:text-gray-600 `}>About</NavLink>
+      <div className="max-w-6xl mx-auto px-8 py-4 flex justify-between items-center">
 
-      <NavLink to="/skills" className={({isActive})=> `${isActive ? "underline underline-offset-8 text-blue-700" : ""} hover:text-gray-600`}>Skills</NavLink>
+        {/* Logo / Brand */}
+        <NavLink to="/" className="text-sm md:text-2xl font-bold text-white tracking-wide">
+          Ayesha<span className="text-blue-400">.</span>
+        </NavLink>
 
-      <NavLink to="/projects" className={({isActive})=> `${isActive ? "underline underline-offset-8 text-blue-700" : ""} hover:text-gray-600`}>Projects</NavLink>
+        {/* Navigation Links */}
+        <nav className="flex md:gap-6 text-xs md:text-base font-medium">
+          
+          <NavLink to="/" className={navLinkStyle}>
+            Home
+          </NavLink>
 
-      <NavLink to="/contact" className={({isActive})=> `${isActive ? "underline underline-offset-8 text-blue-700" : ""} hover:text-gray-600`}>Contact</NavLink>
+          <NavLink to="/about" className={navLinkStyle}>
+            About
+          </NavLink>
+
+          <NavLink to="/projects" className={navLinkStyle}>
+            Projects
+          </NavLink>
+
+          <NavLink to="/contact" className={navLinkStyle}>
+            Contact
+          </NavLink>
+
+        </nav>
+
+      </div>
     </header>
   )
 }

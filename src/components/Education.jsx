@@ -2,14 +2,14 @@ import React from 'react'
 
 function Education() {
 
-    const education = [
+  const education = [
     {
       degree: "Bachelor of Science in Computer Science",
       institution: "University of Punjab - PUCIT",
       period: "2021 - 2025",
       location: "Lahore, Pakistan",
       description:
-        "Focused on software engineering, data structures, algorithms, and web development. Graduated with a strong understanding of computer science principles and practical skills.",
+        "Focused on software engineering, data structures, algorithms, and web development. Developed strong foundations in computer science principles with practical implementation experience.",
       relevantCourses: [
         "Data Structures & Algorithms",
         "Database Management Systems",
@@ -19,47 +19,82 @@ function Education() {
       ],
     },
     {
-      degree: "Intermediate - FSC (Pre-Engineering) ",
+      degree: "Intermediate - FSC (Pre-Engineering)",
       institution: "Punjab College",
       period: "2019 - 2021",
       location: "Lahore, Pakistan",
       description:
-        "Strong foundation in mathematics and  physics.",
+        "Built a strong foundation in mathematics and physics with analytical problem-solving focus.",
       relevantCourses: ["Mathematics", "Physics", "Chemistry"],
     },
   ];
 
   return (
-    <div className='md:my-20 m-10 flex flex-col items-center '>
-        <div className='flex flex-col md:gap-10 gap-5 justify-center items-center'>
-        <b><h1  className='text-center md:text-6xl text-2xl'>Education</h1></b>
-        <p className='md:text-xl pb-5'>My academic background</p>
+    <section className="mt-20">
+
+      {/* Section Heading */}
+      <div className="text-center mb-14">
+        <h2 className="text-3xl md:text-5xl font-bold mb-4">
+          Education
+        </h2>
+        <p className="text-gray-400 text-lg">
+          My academic background
+        </p>
       </div>
 
-        <div className='flex flex-col m-5 gap-4 '>
+      {/* Education Cards */}
+      <div className="space-y-10">
 
-          {education.map((e, index)=>
-            <div className='flex flex-col border-2 border-zinc-700 rounded-2xl md:w-[70vw] md:h-[40vh] md:p-5 p-5 gap-3 hover:scale-102 text-sm w-[70vw] ' key={index}>
-                <b><h2 className='text-center md:text-2xl p-3 '>{e.degree}</h2></b>
-                <div className='flex justify-end text-sm p-2 '><span>{e.period}</span></div>
-                <h2 className='underline underline-offset-4 '>{e.institution}</h2>
-                <span className='underline underline-offset-4'>{e.location}</span>
-                <span className=''>{e.description}</span>
+        {education.map((e, index) => (
+          <div
+            key={index}
+            className="bg-slate-900 border border-slate-800 rounded-3xl p-8 hover:border-blue-400 transition duration-300"
+          >
 
-                <div className='flex flex-row flex-wrap md:gap-2 gap-5 md:mt-4 '>
-                  {e.relevantCourses.map((technology, index)=>
-                    <div key={index}>
-                      <span className='border-2 border-gray-600 rounded-2xl  hover:bg-gray-600 text-xs md:text-sm p-1 md:p-2'>{technology}</span>
-                    </div>
-                  )}
-                </div>
-
+            {/* Top Row */}
+            <div className="flex flex-col md:flex-row md:justify-between md:items-center gap-4 mb-6">
+              
+              <div>
+                <h3 className="text-xl md:text-2xl font-semibold text-white">
+                  {e.degree}
+                </h3>
+                <p className="text-blue-400 font-medium">
+                  {e.institution}
+                </p>
+                <p className="text-gray-500 text-sm">
+                  {e.location}
+                </p>
               </div>
-          )}
 
-        </div>
+              <div className="text-gray-400 text-sm md:text-base">
+                {e.period}
+              </div>
 
-    </div>
+            </div>
+
+            {/* Description */}
+            <p className="text-gray-400 leading-relaxed mb-6">
+              {e.description}
+            </p>
+
+            {/* Tags */}
+            <div className="flex flex-wrap gap-3">
+              {e.relevantCourses.map((course, i) => (
+                <span
+                  key={i}
+                  className="px-3 py-1 text-sm bg-slate-800 border border-slate-700 rounded-full text-gray-300 hover:border-blue-400 hover:text-blue-400 transition duration-300"
+                >
+                  {course}
+                </span>
+              ))}
+            </div>
+
+          </div>
+        ))}
+
+      </div>
+
+    </section>
   )
 }
 

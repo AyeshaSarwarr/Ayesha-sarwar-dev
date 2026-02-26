@@ -1,20 +1,38 @@
 import React from 'react'
 import Education from '../components/Education'
+import Skills from '../components/Skills'
 
 function About() {
   return (
-    <div className='md:m-20 m-10'>
+    <section className="bg-slate-950 text-white">
 
-      <div className='flex flex-col md:gap-20 gap-5 justify-center items-center'>
-        <b><h1 className='text-center md:text-5xl text-2xl'>About Me</h1></b>
-        <span className=' md:text-2xl  md:w-[60vw]'>I'm a passionate Full Stack Developer. I specialize in modern web technologies and love turning complex problems into simple, beautiful designs.
-        <br/>
-        <br />
-        My expertise spans across frontend and backend development, with a strong focus on React, Next.js, Node.js, and modern database technologies. I'm always eager to learn new technologies and take on challenging projects.</span>
+      <div className="max-w-5xl mx-auto px-6 py-20">
+
+        {/* Heading */}
+        <div className="text-center mb-16">
+          <h1 className="text-4xl md:text-6xl font-bold mb-6">
+            About Me
+          </h1>
+
+          <p className="text-gray-400 text-lg md:text-xl leading-relaxed max-w-3xl mx-auto">
+            I'm a passionate Full Stack Developer focused on building modern,
+            scalable web applications. I enjoy transforming complex problems
+            into simple, elegant solutions with clean architecture and strong
+            user experience.
+          </p>
+
+          <p className="text-gray-500 text-lg md:text-xl leading-relaxed max-w-3xl mx-auto mt-6">
+            My expertise spans frontend and backend technologies including
+            React, Next.js, Node.js, and modern databases.
+            I’m constantly learning and challenging myself with new tools
+            and real-world projects.
+          </p>
+        </div>
+        <Skills/>
+        <Education/>
+
       </div>
-
-      <Education/>
-    </div>
+    </section>
   )
 }
 

@@ -2,40 +2,75 @@ import { Link } from 'react-router-dom'
 import Button from './Button'
 import Projects from './Projects'
 
-function FeaturedProjects({limit}) {
+function FeaturedProjects({ limit }) {
 
   return (
-    <section className='md:m-10 m-5'>
-      
-      <div className='flex gap-5 md:flex-row flex-col flex-wrap'>
+    <div className="grid md:grid-cols-2 gap-12">
 
-        {Projects.slice(0, limit).map((project, index)=>
-        <div key={index} className='flex flex-col  border-3 border-gray-800 rounded-2xl gap-3 hover:scale-102 '>
-          
-          <div className='flex flex-col justify-center items-center gap-4 p-4 md:h-[50vh] md:w-[45vw]'>
-            <img src={project.picture} alt="project image" 
-            className='md:h-[30vh] h-[15vh] rounded-2xl'/>
-            <b><h1 className='md:text-3xl'>{project.title}</h1></b>
-            <p className='text-xs md:text-sm'>{project.description}</p>
+      {Projects.slice(0, limit).map((project, index) => (
+        <div
+          key={index}
+          className="bg-slate-900 border border-slate-800 rounded-3xl overflow-hidden hover:border-blue-400 transition duration-300 flex flex-col"
+        >
+
+          {/* Image */}
+          <div className="overflow-hidden">
+            <img
+              src={project.picture}
+              alt={project.title}
+              className="w-full h-56 object-cover hover:scale-105 transition duration-500"
+            />
           </div>
-          
-          <div className='flex md:flex-row flex-wrap gap-4 mx-4'>
-            {project.technologies.map((technology, index)=>
-                <div key={index}>
-                  <span className='bg-gray-700 rounded-2xl px-2 md:px-4 py-2 hover:bg-gray-600  md:text-sm text-xs'>{technology}</span>
-                </div>
-            )}
+
+          {/* Content */}
+          <div className="p-8 flex flex-col grow">
+
+            <h2 className="text-xl md:text-2xl font-semibold mb-4">
+              {project.title}
+            </h2>
+
+            <p className="text-gray-400 text-sm md:text-base mb-6 grow">
+              {project.description}
+            </p>
+
+            {/* Technologies */}
+            <div className="flex flex-wrap gap-3 mb-8">
+              {project.technologies.map((tech, i) => (
+                <span
+                  key={i}
+                  className="px-3 py-1 text-sm bg-slate-800 border border-slate-700 rounded-full text-gray-300 hover:border-blue-400 hover:text-blue-400 transition duration-300"
+                >
+                  {tech}
+                </span>
+              ))}
+            </div>
+
+            {/* Buttons */}
+            <div className="flex gap-4 mt-auto">
+              <a
+                href={project.githubUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <Button content="GitHub" />
+              </a>
+
+              {project.liveUrl && (
+                <a
+                  href={project.liveUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <Button content="Live Preview" />
+                </a>
+              )}
+            </div>
+
           </div>
-           <div className='flex '>
-            <Link to={project.githubUrl} className='m-5' target='_blank'><Button content="Github"/></Link>
-           <Link to={project.liveUrl} className='m-5' target='_blank'><Button content="Live Preview"/></Link>
-           </div>
         </div>
-      )}
+      ))}
 
-      </div>
-
-    </section>
+    </div>
   )
 }
 
