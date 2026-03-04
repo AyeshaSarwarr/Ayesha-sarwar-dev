@@ -1,11 +1,11 @@
 const Projects = [
     {
       picture: "/PerfumeShop.jpg",
-      title: "Perfume Shop - E-Commerce Platform",
+      title: "Essence Perfume Shop",
       description: "A modern, responsive e-commerce website showcasing products, about, and contact with elegant design and smooth animations. It also contains admin panel to easily handle orders and products.",
-      technologies: ["Svelte Kit","Express","Tailwind CSS","MSSQL"],
-      githubUrl: "https://github.com/AyeshaSarwarr/Perfume-E-Commerce-Platform",
-      liveUrl: "https://github.com/AyeshaSarwarr/Perfume-E-Commerce-Platform"
+      technologies: ["React","Express","Tailwind CSS","PostgreSQL"],
+      githubUrl: "https://github.com/AyeshaSarwarr/Essence_Perfumes",
+      liveUrl: "https://essence-premium-perfumes.vercel.app/"
     },
     {
       picture: "/mdn.png",
